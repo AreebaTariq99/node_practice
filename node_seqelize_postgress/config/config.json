@@ -1,0 +1,23 @@
+{
+  "development": {
+    "username": "postgres",
+    "password": "root",
+    "database": "first_database",
+    "host": "127.0.0.1",
+    "dialect": "postgres"
+  },
+  "test": {
+    "username": "invozone",
+    "password": "root",
+    "database": "first_database",
+    "host": "127.0.0.1",
+    "dialect": "postgres"
+  },
+  "production": {
+    "username": "invozone",
+    "password": "root",
+    "database": "first_database",
+    "host": "127.0.0.1",
+    "dialect": "postgres"
+  }
+}
