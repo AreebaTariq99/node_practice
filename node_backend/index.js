@@ -2,12 +2,12 @@ const express = require('express')
 const swaggerJsDoc = require('swagger-jsdoc')
 const swaggerUI= require('swagger-ui-express')
 const app = express()
-const port=4000
+const port=3000
+// routes 
 const userRoutes= require('./routes/user')
 const bookRoutes= require('./routes/books')
-const userComments= require('./routes/comments')
-const logger = require('./middelware/logger')
-const auth = require('./middelware/authorize')
+const userComments= require('./routes/comment.js')
+
 
 
 const swaggerOptions = {
@@ -50,8 +50,8 @@ const swaggerOptions = {
    *         description: Created
    */
 
-app.use(logger);
-app.use('/user',auth,userRoutes);
+
+app.use('/user',userRoutes);
 app.use('/comments',userComments);
 app.use('/books',bookRoutes);
 app.listen(port , ()=>{

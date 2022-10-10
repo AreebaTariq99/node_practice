@@ -1,15 +1,7 @@
 const express = require('express')
+const {books,book_status} = require('../controllers/book.Controller')
 const router = express.Router()
 
-router.get('/',(req, res)=>{
-    res.send([
-        {
-          id: 1,
-          title: "Harry Potter",
-        }
-      ])
-})
-router.post('/', (req, res) => {
-    res.status(201).send();
-  });
+router.get('/',books)
+router.post('/',book_status);
 module.exports =router
