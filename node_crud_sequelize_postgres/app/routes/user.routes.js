@@ -6,12 +6,11 @@ module.exports = app => {
     var router = require("express").Router();
   
     // Create a new user
-    router.post("/", addUserValidation,user.create);
+    router.post("/", addUserValidation, user.create);
   
     // Retrieve all user
     router.get("/", user.findAll);
   
-
     // Retrieve a single user with id
     router.get("/:id", user.findOne);
   
