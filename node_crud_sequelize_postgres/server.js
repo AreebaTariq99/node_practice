@@ -1,5 +1,7 @@
 const express = require("express");
 const app = express();
+require("dotenv").config();
+console.log(process.env.DB_USERNAME)
 const routes = require('./app/routes/index')
 // parse requests of content-type - application/json
 app.use(express.json());
@@ -20,6 +22,8 @@ db.sequelize.sync()
 app.get("/", (req, res) => {
   res.json({ message: "Welcome " });
 });
+
+app.use(routes); 
 app.all('*', (req, res, next) => {
   const err = new Error(`Requested URL ${req.path} not found!`, 404);
   next(err);
@@ -33,10 +37,6 @@ app.use((err, req, res, next) => {
     stack: err.stack
   })
 })
-
-
-app.use(routes); 
-
 // set port, listen for requests
 const PORT = 8000;
 app.listen(PORT, () => {

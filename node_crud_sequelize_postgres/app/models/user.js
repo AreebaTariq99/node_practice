@@ -20,9 +20,6 @@ module.exports = (sequelize, DataTypes) => {
   },
   {
     hooks: {
-      beforeValidate: (user, options) => {
-        user.mood = 'happy';
-      },
       afterCreate: (user, options) => {
         console.log("New User created:");
         console.log(user.firstName);
