@@ -1,16 +1,18 @@
 
-module.exports = app => {
+
     const user = require("../controllers/user.controller.js");
     // adding middlewares
     const {addUserValidation} = require("../middlewares/user.middleware")
-    var router = require("express").Router();
+
+    const router = require("express").Router();
   
     // Create a new user
-    router.post("/", addUserValidation, user.create);
+    router.post("/", addUserValidation,user.create);
   
     // Retrieve all user
     router.get("/", user.findAll);
   
+
     // Retrieve a single user with id
     router.get("/:id", user.findOne);
   
@@ -22,7 +24,8 @@ module.exports = app => {
   
     // Delete all user
     router.delete("/", user.deleteAll);
+
   
-    app.use("/api/user", router);
-  };
+module.exports = router;
+
   

@@ -17,9 +17,20 @@ module.exports = (sequelize, DataTypes) => {
     userName: DataTypes.STRING,
     Password: DataTypes.STRING,
     email: DataTypes.STRING
-  }, {
+  },
+  {
+    hooks: {
+      beforeValidate: (user, options) => {
+        user.mood = 'happy';
+      },
+      afterCreate: (user, options) => {
+        console.log("New User created:");
+        console.log(user.firstName);
+        console.log(user.email);
+      }
+    }, 
     sequelize,
     modelName: 'User',
-  });
+});
   return User;
 };

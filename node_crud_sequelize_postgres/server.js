@@ -1,5 +1,6 @@
 const express = require("express");
 const app = express();
+const routes = require('./app/routes/index')
 // parse requests of content-type - application/json
 app.use(express.json());
 
@@ -32,11 +33,12 @@ app.use((err, req, res, next) => {
     stack: err.stack
   })
 })
-require("./app/routes/user.routes")(app);
+
+
+app.use(routes); 
 
 // set port, listen for requests
 const PORT = 8000;
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}.`);
 });
-

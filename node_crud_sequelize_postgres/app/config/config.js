@@ -22,7 +22,7 @@ module.exports= {
     password: process.env.DB_SECRET,
     database :process.env.DB_DATABASE,
     host : process.env.DB_HOST,
-    dialect: process.env.DB_USERNAME
+      dialect: process.env.DB_USERNAME
   }
  
 };
